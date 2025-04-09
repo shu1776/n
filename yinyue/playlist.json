@@ -1,0 +1,83 @@
+[
+    {
+        "title": "Doll",
+        "artist": "菲菲公主",
+        "duration": "2:36",
+        "cover": "png/1.png",
+        "audioSrc": "mp3/Doll.mp3",
+        "lyricSrc": "Doll.lrc"
+    },
+        {
+        "title": "倒带",
+        "artist": "蔡依林",
+        "duration": "4:25",
+        "cover": "png/2.png",
+        "audioSrc": "mp3/倒带.mp3",
+        "lyricSrc": "倒带.lrc"
+    },
+{
+        "title": "爱错",
+        "artist": "王力宏",
+        "duration": "3:58",
+        "cover": "png/3.png",
+        "audioSrc": "mp3/爱错.mp3",
+        "lyricSrc": "爱错.lrc"
+    },
+    {
+        "title": "别问很可怕",
+        "artist": "单依纯",
+        "duration": "4:05",
+        "cover": "png/4.png",
+        "audioSrc": "mp3/别问很可怕.mp3",
+        "lyricSrc": "别问很可怕.lrc"
+    },
+    {
+        "title": "说爱你",
+        "artist": "刘至佳",
+        "duration": "3:22",
+        "cover": "png/5.png",
+        "audioSrc": "mp3/说爱你.mp3",
+        "lyricSrc": "说爱你.lrc"
+    },
+        {
+        "title": "年轮",
+        "artist": "张碧晨",
+        "duration": "4:34",
+        "cover": "png/6.png",
+        "audioSrc": "mp3/年轮.mp3",
+        "lyricSrc": "年轮.lrc"
+    },
+    {
+        "title": "九张机",
+        "artist": "叶炫清",
+        "duration": "4:21",
+        "cover": "png/7.png",
+        "audioSrc": "mp3/九张机.mp3",
+        "lyricSrc": "九张机.lrc"
+    },
+        {
+        "title": "越来越不懂",
+        "artist": "蔡健雅",
+        "duration": "4:10",
+        "cover": "png/8.png",
+        "audioSrc": "mp3/越来越不懂.mp3",
+        "lyricSrc": "越来越不懂.lrc"
+    },
+    {
+        "title": "非酋",
+        "artist": "薛黛霏",
+        "duration": "2:52",
+        "cover": "png/9.png",
+        "audioSrc": "mp3/非酋.mp3",
+        "lyricSrc": "非酋.lrc"
+    },
+    {
+        "title": "心如止水",
+        "artist": "Ice Paper",
+        "duration": "3:05",
+        "cover": "png/10.png",
+        "audioSrc": "mp3/心如止水.mp3",
+        "lyricSrc": "心如止水.lrc"
+    }
+
+]
