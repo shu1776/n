@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>回忆音乐 | 𝓡𝓮𝓬𝓪𝓵𝓵𝓲𝓷𝓰 𝓶𝓾𝓼𝓲𝓬</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://lf6-cdn-tos.bytecdntp.com/cdn/expire-100-M/font-awesome/6.0.0/css/all.min.css">
+    
+</head>
+
+<body>
+
+    <audio id="audioPlayer" preload="metadata"></audio>
+    <div class="player-container">
+        <div class="header">
+            <h1>𝓡𝓮𝓬𝓪𝓵𝓵𝓲𝓷𝓰 𝓶𝓾𝓼𝓲𝓬</h1>
+        </div>
+
+        <div class="album-art">
+            <img src="https://picsum.photos/400/400" alt="Album Art">
+        </div>
+
+        <div class="song-info">
+            <div class="song-title">加载中</div>
+            <div class="song-artist">加载中</div>
+        </div>
+
+        <div class="progress-container">
+            <div class="progress-bar">
+                <div class="progress"></div>
+            </div>
+            <div class="time-info">
+                <span class="current-time">0:00</span>
+                <span class="duration">3:45</span>
+            </div>
+        </div>
+
+        <div class="controls">
+            <button class="control-btn">
+                <i class="fas fa-backward"></i>
+            </button>
+            <button class="control-btn play-btn">
+                <i class="fas fa-play"></i>
+            </button>
+            <button class="control-btn">
+                <i class="fas fa-forward"></i>
+            </button>
+<button id="playback-mode-toggle" class="playback-mode-btn">
+    <i class="fas fa-list-alt"></i>
+</button>
+
+        </div>
+
+        <button class="playlist-toggle">
+            Playlist <i class="fas fa-chevron-up"></i>
+        </button>
+
+        <div class="playlist-container">
+            <div class="drag-handle"></div>
+            <div class="playlist-header">
+                <h2>Playlist</h2>
+
+                <button class="close-playlist">
+                    <i class="fas fa-times"></i>
+                </button>
+                
+            </div>
+            <div class="search-container" style="justify-content: center;"> <!-- 新增样式，让搜索部分居中 -->
+        <input type="text" id="search-input" placeholder="搜索歌曲">
+        <button id="search-button">搜索</button>
+    </div>
+            <div class="playlist">
+            </div>
+        </div>
+
+        <!-- 添加歌词显示区域 -->
+        <div class="lyrics-container">
+            <div class="lyrics"></div>
+        </div>
+
+    </div>
+    <script src="script.js"></script>
+    
+</body>
+
+</html>
