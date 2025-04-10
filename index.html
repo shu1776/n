@@ -1,3 +1,336 @@
-我会一直喜欢你
-一直陪着你
-只要你开心就好
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>L.</title>
+  <style>
+    /* 基础样式 */
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      text-align: center;
+      overflow-x: hidden;
+      position: relative;
+    }
+ 
+    /* 背景图固定解决方案 */
+    body::after {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('pl.jpg') center center/cover no-repeat;
+      z-index: -2;
+    }
+ 
+    /* 背景遮罩层 */
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.2);
+      z-index: -1;
+    }
+ 
+    /* 主容器 */
+    .container {
+      padding: 30px;
+      width: 85%;
+      max-width: 300px;
+      border-radius: 30px;
+      background: rgba(0, 0, 0, 0.2);
+      backdrop-filter: blur(0px);
+      box-shadow: 0 5px 25px rgba(0, 0, 0, 2);
+      margin: 20px;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 0.8s ease-out forwards;
+    }
+ 
+    /* 头像样式 */
+    .profile-pic {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid rgba(255, 255, 255, 0.8);
+      margin: 0 auto;
+      display: block;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+      transition: all 0.5s ease;
+      transform: scale(0.95);
+      animation: 
+        pulse 2s infinite alternate,
+        float 6s ease-in-out infinite;
+    }
+ 
+    .profile-pic:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+      border-color: #fff;
+      animation-play-state: paused;
+    }
+ 
+    /* 文字样式 */
+    .name {
+      font-size: 2.5em;
+      font-weight: bold;
+      margin: 1rem 0 0.5rem;
+      text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+      opacity: 0;
+      animation: fadeIn 0.8s ease-out 0.3s forwards;
+    }
+ 
+    .subtitle {
+      font-size: 1.2em;
+      font-weight: 300;
+      margin: 0.5rem 0;
+      color: rgba(255, 255, 255, 0.9);
+      opacity: 0;
+      animation: fadeIn 0.8s ease-out 0.5s forwards;
+    }
+ 
+    .welcome-message {
+      font-size: 1em;
+      font-weight: 300;
+      margin: 1rem 0 1.5rem;
+      letter-spacing: 1px;
+      opacity: 0;
+      animation: fadeIn 0.8s ease-out 0.7s forwards;
+    }
+ 
+    /* 导航按钮 */
+    .navigation {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin: 1.5rem 0;
+      gap: 0.5rem;
+    }
+ 
+    .navigation button {
+      font-size: 1em;
+      padding: 0.75rem 1.5rem;
+      border: 2px solid rgba(255, 255, 255, 0.7);
+      border-radius: 30px;
+      background: transparent;
+      color: white;
+      cursor: pointer;
+      transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+      opacity: 0;
+      transform: translateY(10px);
+      animation: fadeInUp 0.6s ease-out 0.9s forwards;
+      position: relative;
+      overflow: hidden;
+    }
+ 
+    .navigation button:nth-child(1) {
+      animation-delay: 0.9s;
+    }
+    .navigation button:nth-child(2) {
+      animation-delay: 1.1s;
+    }
+ 
+    .navigation button:hover {
+      background: rgba(255, 255, 255, 0.9);
+      color: #333;
+      transform: translateY(-3px);
+      box-shadow: 0 7px 15px rgba(0, 0, 0, 0.3);
+    }
+ 
+    .navigation button::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+      transition: all 0.6s;
+    }
+ 
+    .navigation button:hover::before {
+      left: 100%;
+    }
+ 
+    /* 页脚 */
+    footer {
+      margin-top: 1.5rem;
+      font-size: 0.8em;
+      color: rgba(255, 255, 255, 0.7);
+      opacity: 0;
+      animation: fadeIn 0.8s ease-out 1.3s forwards;
+    }
+ 
+    /* 樱花效果 */
+    .cherry-blossom {
+      position: fixed;
+      width: 12px;
+      height: 12px;
+      background: radial-gradient(circle, rgba(255, 192, 203, 0.8) 35%, transparent 40%);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: -1;
+      will-change: transform, opacity;
+      opacity: 0;
+    }
+ 
+    /* 动画定义 */
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+ 
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+ 
+    @keyframes pulse {
+      from { transform: scale(0.95); box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); }
+      to { transform: scale(1); box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4); }
+    }
+ 
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-15px); }
+    }
+ 
+    @keyframes fall {
+      0% { transform: translateY(-100px) rotate(0deg) scale(0.8); opacity: 0; }
+      10% { opacity: 1; }
+      90% { opacity: 0.8; }
+      100% { transform: translateY(100vh) rotate(360deg) scale(1.2); opacity: 0; }
+    }
+ 
+    /* 响应式设计 */
+    @media (max-width: 600px) {
+      .container {
+        width: 90%;
+        padding: 20px;
+      }
+      
+      .name {
+        font-size: 2em;
+      }
+      
+      .subtitle, .welcome-message {
+        font-size: 1em;
+      }
+      
+      .profile-pic {
+        width: 120px;
+        height: 120px;
+      }
+ 
+      .navigation button {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.9em;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <img src="pl.jpg" alt="L." class="profile-pic">
+      <h1 class="name">L.</h1>
+      <p class="subtitle">等日落西山等冬去春来等尘埃落定<br> 𝓦𝓪𝓲𝓽 𝓯𝓸𝓻 𝓽𝓱𝓮 𝓼𝓾𝓷 𝓽𝓸 𝓼𝓮𝓽, 𝔀𝓪𝓲𝓽 𝓯𝓸𝓻 𝔀𝓲𝓷𝓽𝓮𝓻 𝓽𝓸 𝓹𝓪𝓼𝓼, 𝔀𝓪𝓲𝓽 𝓯𝓸𝓻 𝓼𝓹𝓻𝓲𝓷𝓰 𝓽𝓸 𝓬𝓸𝓶𝓮, 𝔀𝓪𝓲𝓽 𝓯𝓸𝓻 𝓽𝓱𝓮 𝓭𝓾𝓼𝓽 𝓽𝓸 𝓼𝓮𝓽𝓽𝓵𝓮</p>
+          </header>
+    <nav class="navigation">
+      <button onclick="#">𝓡𝓮𝓬𝓪𝓵𝓵𝓲𝓷𝓰 𝓶𝓾𝓼𝓲𝓬</button>
+      <button onclick="location.href='yinyue/index.html'">音乐</button>
+    </nav>
+    <footer>
+      <p>〈草木荣枯，四季轮回〉</p>
+    </footer>
+  </div>
+ 
+  <script>
+    // 高性能樱花动画 
+    class CherryBlossom {
+      constructor() {
+        this.element = document.createElement('div');
+        this.element.className = 'cherry-blossom';
+        this.reset();
+        document.body.appendChild(this.element);
+        this.animate();
+      }
+      
+      reset() {
+        const size = Math.random() * 12 + 5;
+        this.element.style.left = Math.random() * window.innerWidth + 'px';
+        this.element.style.width = size + 'px';
+        this.element.style.height = size + 'px';
+        this.element.style.opacity = Math.random() * 0.5 + 0.5;
+        this.element.style.animation = `fall ${(Math.random() * 5 + 3)}s linear forwards`;
+      }
+      
+      animate() {
+        this.element.addEventListener('animationend', () => {
+          this.element.remove();
+          if (Math.random() > 0.3) new CherryBlossom();
+        }, { once: true });
+      }
+    }
+ 
+    // 初始化樱花 
+    function initBlossoms() {
+      const blossomCount = Math.min(Math.floor(window.innerWidth * window.innerHeight / 20000), 15);
+      for (let i = 0; i < blossomCount; i++) {
+        setTimeout(() => new CherryBlossom(), i * 300);
+      }
+    }
+ 
+    // 页面加载完成后初始化 
+    window.addEventListener('DOMContentLoaded', () => {
+      initBlossoms();
+      
+      // 视窗大小变化时重新初始化 
+      let resizeTimer;
+      window.addEventListener('resize', () => {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(() => {
+          document.querySelectorAll('.cherry-blossom').forEach(el => el.remove());
+          initBlossoms();
+        }, 200);
+      });
+    });
+ 
+    // 添加点击水波纹效果 
+    document.addEventListener('click', function(e) {
+      const ripple = document.createElement('div');
+      ripple.style.position = 'fixed';
+      ripple.style.width = '10px';
+      ripple.style.height = '10px';
+      ripple.style.backgroundColor = 'rgba(255, 255, 255, 0.3)';
+      ripple.style.borderRadius = '50%';
+      ripple.style.pointerEvents = 'none';
+      ripple.style.transform = 'translate(-50%, -50%)';
+      ripple.style.left = e.clientX + 'px';
+      ripple.style.top = e.clientY + 'px';
+      document.body.appendChild(ripple);
+      
+      ripple.animate([
+        { transform: 'translate(-50%, -50%) scale(0)', opacity: 1 },
+        { transform: 'translate(-50%, -50%) scale(10)', opacity: 0 }
+      ], {
+        duration: 800,
+        easing: 'cubic-bezier(0.4, 0, 0.2, 1)'
+      }).onfinish = () => ripple.remove();
+    });
+  </script>
+</body>
+</html>
